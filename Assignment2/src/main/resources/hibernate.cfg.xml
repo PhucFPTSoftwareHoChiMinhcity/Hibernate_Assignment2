@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/dbmovietheater</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">12345678</property>
+
+        <!-- Second Level Cache -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+
+        <!-- Query Cache -->
+        <property name="hibernate.cache.use_query_cache">true</property>
+
+        <!-- Database connection settings for SQL Server -->
+        <!--    <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>-->
+        <!--    <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;database=dbexam;encrypt=true;trustServerCertificate=true</property>-->
+        <!--    <property name="hibernate.connection.username">sa</property>-->
+        <!--    <property name="hibernate.connection.password">P@sslag1</property>-->
+
+        <!-- Show all executed SQL to console -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <!-- Update database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- Set the current session context -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- JDBC connection pool settings -->
+        <property name="connection.pool_size">3</property>
+
+        <!-- Entity mapping -->
+        <mapping class="org.example.entity.CINEMA_ROOM" />
+        <mapping class="org.example.entity.CINEMA_ROOM_DETAIL" />
+        <mapping class="org.example.entity.SEAT" />
+    </session-factory>
+</hibernate-configuration>
